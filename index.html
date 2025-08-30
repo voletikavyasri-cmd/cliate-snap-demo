@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Snap: Instant Earth Data</title>
+    <!-- This loads Chart.js to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- This loads our own style sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🌎 Climate Snap</h1>
+        <p>Visualize Climate Data in One Click</p>
+    </header>
+
+    <main>
+        <section class="controls">
+            <h2>Select a Location</h2>
+            <div class="location-buttons">
+                <!-- Buttons for different places. When clicked, they call the fetchClimateData function -->
+                <button onclick="fetchClimateData(-3.4653, -62.2159, 'Amazon Rainforest')">Amazon Rainforest</button>
+                <button onclick="fetchClimateData(25.0, 0.0, 'Sahara Desert')">Sahara Desert</button>
+                <button onclick="fetchClimateData(65.0, -18.0, 'Iceland')">Iceland</button>
+                <button onclick="fetchClimateData(28.6, 77.2, 'New Delhi, India')">New Delhi, India</button>
+            </div>
+        </section>
+
+        <section class="results">
+            <h2>Visualization for: <span id="location-name">---</span></h2>
+            <div id="loading" class="hidden">Loading data from NASA... ⏳</div>
+            <!-- The canvas (drawing board) for our chart -->
+            <canvas id="climate-chart"></canvas>
+            <button id="download-btn" class="hidden" onclick="downloadChart()">Download Chart Image</button>
+        </section>
+    </main>
+
+    <!-- This loads our own JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
